@@ -37,14 +37,15 @@ class Logger:
 
 class Installer:
     def __init__(self):
-        self.__update()
-        self.__upgrade()
-        self.__clean()
+        print ''
+        # self.__update()
+        # self.__upgrade()
+        # self.__clean()
 
         # generic - works
-        self.__install('vim')
-        self.__install('curl')
-        self.__install('git')
+        # self.__install('vim')
+        # self.__install('curl')
+        # self.__install('git')
 
         # self.__install('python-pip')
         # self.__install('python-setuptools')
@@ -52,15 +53,14 @@ class Installer:
         # google chrome - works
         # _execute('wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -')
         # _execute('sudo sh -c \'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list\'')
-        self.__install('google chrome')
+        # self.__install('google chrome')
 
         # sublime - works
         # _execute('sudo add-apt-repository ppa:webupd8team/sublime-text-3')
-        self.__install('sublime')
+        # self.__install('sublime')
 
         # vlc - works
-        self.__install('vlc')
-        self.__install('dog')
+        # self.__install('vlc')
 
     def __install(self, alias):
         command = self.__get_command_name(alias)
