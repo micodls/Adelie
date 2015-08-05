@@ -1,6 +1,13 @@
 # Auto detect text files and perform LF normalization
 * text=auto
 
+# Force eol conversion to Windows (crlf)
+*.bat    text eol=crlf
+
+# Force eol to Unix (lf)
+*.py     text eol=lf
+*.sh     text eol=lf
+
 # Custom for Visual Studio
 *.cs     diff=csharp
 
