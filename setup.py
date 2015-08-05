@@ -7,16 +7,10 @@ import subprocess
 import shlex
 import helpers
 
-class Logger:
-    def __init__(self):
-        print ''
-
-    def log(self, severity, message):
-        print 'log'
-
 class Installer:
     def __init__(self):
         print ''
+        helpers.execute('cd')
         # self.__update()
         # self.__upgrade()
         # self.__clean()
