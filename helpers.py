@@ -1,13 +1,14 @@
 #!/usr/bin/env python
 
 import sys
+import platform
 import subprocess
 import shlex
 
 def execute(command, option=None, abort_on_error=True):
     command = shlex.split(command)
     if option == None:
-        return_code = subprocess.call(command)
+        return_code = subprocess.call(command) if is_linux() else subprocess.call(command, shell=True)
     elif option == 'quiet':
         dev_null = open(os.devnull, 'w')
         return_code = subprocess.call(command, stdout=dev_null, stderr=dev_null)
@@ -26,3 +27,6 @@ def execute(command, option=None, abort_on_error=True):
         RuntimeError(error_message)
     else:
        print '[WARNING]: {}'.format(error_message)
+
+def is_linux():
+    return platform.system().lower() == "linux"
