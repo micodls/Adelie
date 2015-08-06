@@ -45,3 +45,6 @@ Temporary Items
 # Sublime
 .sublime-project
 .sublime-workspace
+
+# Compiled Python Object
+.pyc
