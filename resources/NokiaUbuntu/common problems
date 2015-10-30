@@ -1,0 +1,23 @@
+# Wow - Wine
+# wow optimization (http://www.webupd8.org/2014/09/how-to-install-world-of-warcraft-in.html)
+sudo apt-get install driconf
+# Then launch driconf: it should show up as "3D Acceleration" in the menu/Dash (you can also launch it by pressing ALT + F2 and entering: "driconf") and on the
+# Image Quality tab, set "Enable S3TC texture compression even if software support is not available" to "Yes", then close the window.
+
+# err:wininet:open_http_connection create_netconn failed: 12029
+restart
+
+# intel_do_flush_locked failed Input/Output error
+LIBGL_ALWAYS_SOFTWARE=1 wine Wow.exe -opengl
+# restart program since it will be too laggy. Don't reload hardware.
+
+# apt-get
+# W: Duplicate sources.list entry http://archive.ubuntu.com/ubuntu/ precise-updates/main i386 Packages (/var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_precise-updates_main_binary-i386_Packages)
+# W: You may want to run apt-get update to correct these problems
+sudo rm /etc/apt/sources.list.d/google.list
+
+# Not enough free disk space on /boot
+df -h
+uname -r # dont remove this one
+dpkg -l linux-image*
+sudo apt-get purge linux-image-x.xxx.xx # all lower version than what you are using, be sure that you are save the latest

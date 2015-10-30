@@ -1,0 +1,57 @@
+Thunderbird
+1. Edit -> Account Settings
+2. Add an Outgoing Server (SMTP)
+   Description: Nokia
+   Server Name: dhn-mailrelay.emea.nsn-intra.net
+   Port: 25
+   Connection security: None
+   Authentication method: No authentication
+3. Account Actions -> Add Mail Account...
+   Your Name: <FULL_NAME>
+   Email Address: <NOKIA_EMAIL_ADDRESS>
+   Password: <NOKIA_PASSWORD>
+3.1. Manual Config
+   IMAP:
+       Server hostname: webmail.inside.nokiasiemensnetworks.com
+       Port: 993
+       SSL: SSL/TLS
+       Authentication: Normal Password
+   SMTP:
+       Server hostname: dhn-mailrelay.emea.nsn-intra.net
+   Username:
+       Incoming: <NOKIA_USERNAME>@nsn-intra.net
+       Outgoing: <NOKIA_USERNAME>@nsn-intra.net
+Notes:
+1. Remove/disable filters from webmail
+
+Reminna Remote Desktop Client
+Server: 10.12.6.87
+Username: User
+Password: scbt
+
+Error: Cannot connect to RDP Server
+rm -rf ~/.freerdp/known_hosts
+
+Make google search english by instead of local proxy
+1. Settings -> Manage search engines...
+2. Make google.com default instead of google.fi
+
+Printer
+1. Open printer IP in your favorite browser
+    Building I 1st floor: 10.136.132.3
+    Building I 2nd floor: 10.136.134.3
+    Building I 3rd floor: 10.136.128.3
+    Building O 1st floor: 10.136.136.3
+2. Enter your credentials
+    username: <USER_IDL>
+        OAM: 62@O&M
+    password: [BLANK]
+3. Go to print tab
+4. Choose your file to print
+5. Submit job
+
+Webex Meeting
+1. Call: 99447850
+2. Wait for message saying: "Welcome to Nokia Conference Service..."
+3. Input Conference Code followed by #
+    Example: 594 874 8533#
