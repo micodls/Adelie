@@ -115,6 +115,35 @@ class Git:
     def clone(self, source, dest, SSH=True):
         helpers.execute('git clone {} {}'.format(source, dest if dest else ''))
 
+class GitConfigurator:
+    def __init__(self):
+        self.__set_user_info('email')
+        # self.__set_user_info('name')
+        # self.set_default_configurations()
+        # self.set_SSH()
+
+    def __set_user_info(self, value):
+        try:
+            helpers.execute('git config --global user.{}'.format(value), 'check')
+        except subprocess.CalledProcessError:
+            user_info = raw_input('Enter your {}: '.format(value))
+            helpers._execute('git config --global user.{} "{}"'.format(value, user_info))
+
+    def get_user_info(self, value):
+        try:
+            print value + ': ' + _execute('git config --global user.%s' % (value), False)
+        except subprocess.CalledProcessError, e:
+            self.set_user_info(value)
+
+    def unset_user_info(self, value):
+        _execute('git config --global --unset-all user.%s' % value)
+
+    def set_default_configurations(self):
+        _execute('git config --global core.autocrlf true')
+
+    def set_SSH(self):
+        _execute('ssh-keygen')
+
 class Timer:
     def __enter__(self):
         self.start_time = time.time()
@@ -127,7 +156,7 @@ class Timer:
 def main():
     with Timer():
         linux.Installer()
-        # git = Git()
+        GitConfigurator()
         # git.clone()
 
 if __name__ == '__main__':
@@ -135,7 +164,7 @@ if __name__ == '__main__':
 
 # skype
 # viber
-# spotfy
+# spotify
 
 # http://tecadmin.net/install-laravel-framework-on-ubuntu/
 # https://bitbucket-api.readthedocs.org/en/latest/usage.html
