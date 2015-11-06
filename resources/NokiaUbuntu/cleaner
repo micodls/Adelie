@@ -1,0 +1,7 @@
+find . -iname desktop.ini -delete
+find . -iname thumbs.db -delete
+find . -name ".DS_Store" -print0 | xargs -0 rm -rf
+find . -name "._*" -print0 | xargs -0 rm -rf
+
+# find files that are NOT in extension
+find . -not -name *.mp4 -not -type d -not -name *.srt -not -name *.mkv -not -name *.avi -not -name *.divx -not -name *.wmv -not -name *.sub -not -name *.sfv -not -name *.idx -not -name *.m4v -not -name *.ass
