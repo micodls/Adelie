@@ -55,13 +55,13 @@ class Installer:
             except OSError as e:
                 if e.errno == os.errno.ENOENT:
                     helpers.log('Installing {}.'.format(alias), 'info')
-                    helpers.execute('sudo apt-get install {}'.format(installer))
+                    # helpers.execute('sudo apt-get install {}'.format(installer))
             else:
                 helpers.log('{} already installed.'.format(alias), 'info')
 
     def __update(self):
         # helpers.execute('echo "nameserver 8.8.8.8" | sudo tee /etc/resolv.conf > /dev/null', 'pipe') # hack for update
-        helpers.execute('sudo apt-get update')
+        helpers.execute('sudo apt-get update --quiet')
 
     def __upgrade(self):
         helpers.execute('sudo apt-get upgrade')

@@ -1,6 +1,3 @@
-# gdebi - .deb installer
-sudo apt-get install gdebi-core
-
 # nodejs and npm - nokia specific
 curl -sL https://deb.nodesource.com/setup | sudo bash -
 sudo apt-get install nodejs
@@ -20,26 +17,14 @@ sudo npm install -g npm@2.11.3
 sudo mv node-v0.xx.x-linux-x64.tar.gz /opt/
 sudo ln -s /opt/node-v0.xx.x-linux-x64.tar.gz/bin/node /usr/local/bin/node
 
-# nyancat
-sudo apt-get install nyancat
-
-# vim - vi improved
-sudo apt-get install vim
-
 # npm warn unmet dependency when you npm install
 rm -rf node_modules/
 npm cache clean
-
-# dtrx - do the right extraction
-sudo apt-get install dtrx
 
 # shutter - snipping tool for linux - optional
 sudo add-apt-repository ppa:shutter/ppa
 sudo apt-get update
 sudo apt-get install shutter
-
-# xclip - copy to clipboard via terminal
-sudo apt-get install xclip
 
 # git
 sudo apt-get install git
@@ -83,13 +68,6 @@ sudo apt-get install wine
 sudo add-apt-repository "deb http://archive.canonical.com/ $(lsb_release -sc) partner"
 sudo apt-get update
 sudo apt-get install skype
-
-# latex
-sudo apt-get install texlive-latex-base
-sudo apt-get install texlive-fonts-recommended
-sudo apt-get install texlive-latex-extra # HUGE! 800mb
-# latex <FILE.tex> - to compile
-# pdflatex <FILE.tex> - to create pdf
 
 # pandoc - converts markdown to pdf - requires latex
 sudo apt-get install pandoc

@@ -162,9 +162,7 @@ def main():
 if __name__ == '__main__':
     main()
 
-# skype
 # viber
-# spotify
 
 # http://tecadmin.net/install-laravel-framework-on-ubuntu/
 # https://bitbucket-api.readthedocs.org/en/latest/usage.html
