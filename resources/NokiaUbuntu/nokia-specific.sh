@@ -71,3 +71,18 @@ ssh-keygen -t rsa -C "paolo.de_los_santos@nokia.com"
 cat ~/.ssh/id_rsa.pubd
 xclip -sel clip < ~/.ssh/id_rsa.pub
 # Copy-paste the key to the 'My SSH Keys' section under the 'SSH' tab in your user profile. Please copy the complete key starting with ssh- and ending with your username and host.
+
+# nodejs and npm - nokia specific
+curl -sL https://deb.nodesource.com/setup | sudo bash -
+sudo apt-get install nodejs
+sudo apt-get install build-essential
+sudo ln -s /usr/bin/nodejs /usr/local/bin/node
+
+# nokia nodejs and npm (https://confluence.int.net.nokia.com/display/MEGAZONE/Node.js)
+sudo ln -s /usr/bin/nodejs /usr/local/bin/node
+sudo npm install -g npm@2.11.3
+# Download proper nodejs
+# Windows: http://esmz02.emea.nsn-net.net:8080/job/megazone-node-js-Windows-installation-image/lastSuccessfulBuild/artifact/node/Release/node-v0.xx.x-x86.msi
+# Linux: http://esmz02.emea.nsn-net.net:8080/job/megazone-node-js-Linux-installation-image/lastSuccessfulBuild/artifact/node/node-v0.xx.x-linux-x64.tar.gz
+sudo mv node-v0.xx.x-linux-x64.tar.gz /opt/
+sudo ln -s /opt/node-v0.xx.x-linux-x64.tar.gz/bin/node /usr/local/bin/node

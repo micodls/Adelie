@@ -21,3 +21,7 @@ df -h
 uname -r # dont remove this one
 dpkg -l linux-image*
 sudo apt-get purge linux-image-x.xxx.xx # all lower version than what you are using, be sure that you are save the latest
+
+# npm warn unmet dependency when you npm install
+rm -rf node_modules/
+npm cache clean

@@ -1,0 +1,125 @@
+# LINUX GENERIC
+
+# Vi Improved - Text editor
+# www.vim.org/
+# usage: vim [FILE...]
+vim
+
+# Client-side URL transfer
+# curl.haxx.se/
+# usage: curl [options] [URL...]
+curl
+
+# A simple tool to install .deb files
+# https://launchpad.net/gdebi
+# usage: sudo gdebi [PACKAGE...]
+# sudo apt-get install gdebi-core
+gdebi
+
+# Do The Right Extraction
+# http://brettcsmith.org/2007/dtrx/
+# usage: dtrx [options] [ARCHIVE...]
+dtrx
+
+# Command line copy and paste
+# http://linux.die.net/man/1/xclip
+# usage: xclip -sel clip < ~/.ssh/id_rsa.pub
+xclip
+
+# latex
+# https://www.tug.org/texlive
+# usage: pdflatex [FILE...]
+# sudo apt-get install texlive-latex-base
+# sudo apt-get install texlive-fonts-recommended
+# sudo apt-get install texlive-latex-extra # HUGE! 800mb
+texlive
+
+# Universal document converter
+# pandoc.org/
+# usage: pandoc [options] [FILE...]
+pandoc
+
+# Version control system
+# https://git-scm.com/
+git
+
+# Git repository browser
+# https://git-scm.com/docs/gitk
+gitk
+
+# Event-driven I/O server-side JavaScript environment based on V8
+# https://nodejs.org/
+nodejs
+
+# node package manager
+# https://www.npmjs.com/
+npm
+
+# VLC media player
+# http://www.videolan.org/vlc/index.html
+# usage: vlc [MEDIA...]
+vlc
+
+# Nyancat!
+# usage: nyancat
+nyancat
+
+# TOOLS
+
+# Sublime Text 3
+# www.sublimetext.com/
+# usage: subl [FILE...]
+# addons: package control, prettify
+# sudo add-apt-repository ppa:webupd8team/sublime-text-3
+# sudo apt-get update
+# sudo apt-get install sublime-text-installer
+sublime
+
+# Google Chrome
+# https://www.google.com/chrome/
+# usage: google-chrome
+# echo "deb http://dl.google.com/linux/chrome/deb/ stable main" | sudo tee -a /etc/apt/sources.list.d/google.list
+# wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+# sudo apt-get update
+# sudo apt-get install google-chrome-stable
+google chrome
+
+# Spotify
+# https://www.spotify.com/
+# usage: spotify
+# sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys D2C19886
+# echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
+# sudo apt-get update
+# sudo apt-get install spotify-client
+spotify
+
+# Skype
+# www.skype.com/en
+# usage: skype
+# sudo add-apt-repository "deb http://archive.canonical.com/ $(lsb_release -sc) partner"
+# sudo apt-get update
+# sudo apt-get install skype
+skype
+
+# Wine Is Not an Emulator
+# https://www.winehq.org/
+# usage: wine [APPLICAION...]
+#        winecfg
+# sudo add-apt-repository ppa:ubuntu-wine/ppa -y
+# sudo apt-get update
+# sudo apt-get install wine
+wine
+
+# Beyond compare
+# www.scootersoftware.com/
+# usage: bcompare [FILE...]
+# wget http://www.scootersoftware.com/bcompare-4.1.2.20720_amd64.deb
+# sudo gdebi bcompare-4.1.2.20720_amd64.deb
+Beyond Compare
+
+# Viber
+# https://www.viber.com/en
+# usage: /opt/viber/Viber
+# wget http://download.cdn.viber.com/cdn/desktop/Linux/viber.deb
+# sudo dpkg viber.deb
+Viber

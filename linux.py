@@ -5,14 +5,14 @@ import helpers
 
 class Installer:
     def __init__(self):
-        self.__update()
-        self.__upgrade()
-        self.__clean()
+        # self.__update()
+        # self.__upgrade()
+        # self.__clean()
 
         # generic - works
-        self.__install('vim')
-        self.__install('curl')
-        self.__install('git')
+        # self.__install('vim')
+        # self.__install('curl')
+        # self.__install('git')
 
         # self.__install('python-pip')
         # self.__install('python-setuptools')
@@ -21,26 +21,26 @@ class Installer:
         # helpers.execute('wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -')
         # helpers.execute('sudo sh -c \'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google-chrome.list\'')
         # self.__update()
-        self.__install('google chrome')
+        # self.__install('google chrome')
 
         # sublime
         # helpers.execute('sudo add-apt-repository ppa:webupd8team/sublime-text-3')
         # self.__update()
-        self.__install('sublime')
+        # self.__install('sublime')
 
         # vlc
-        self.__install('vlc')
+        # self.__install('vlc')
 
         # skype - not working
         # helpers.execute('sudo add-apt-repository "deb http://archive.canonical.com/ $(lsb_release -sc) partner"')
         # self.__update()
-        self.__install('skype')
+        # self.__install('skype')
 
         # spotify - not working (needs to be updated for 15.04)
         # helpers.execute('sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys D2C19886')
         # helpers.execute('sudo sh -c \'echo "deb http://repository.spotify.com stable non-free" > /etc/apt/sources.list.d/spotify.list\'')
         # self.__update()
-        self.__install('spotify')
+        # self.__install('spotify')
 
     def __install(self, alias):
         command = self.__get_command_name(alias)
