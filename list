@@ -115,11 +115,18 @@ wine
 # usage: bcompare [FILE...]
 # wget http://www.scootersoftware.com/bcompare-4.1.2.20720_amd64.deb
 # sudo gdebi bcompare-4.1.2.20720_amd64.deb
-Beyond Compare
+beyond compare
 
 # Viber
 # https://www.viber.com/en
 # usage: /opt/viber/Viber
 # wget http://download.cdn.viber.com/cdn/desktop/Linux/viber.deb
-# sudo dpkg viber.deb
-Viber
+# sudo gdebi viber.deb
+viber
+
+# Dropbox
+# https://www.dropbox.com
+# usage:
+# wget https://www.dropbox.com/download?dl=packages/ubuntu/dropbox_2015.10.28_amd64.deb
+# sudo gdebi dropbox_2015.10.28_amd64.deb
+dropbox
