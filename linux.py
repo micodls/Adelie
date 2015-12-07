@@ -5,6 +5,7 @@ import helpers
 
 class Installer:
     def __init__(self):
+        helpers.read_file();
         # self.__update()
         # self.__upgrade()
         # self.__clean()

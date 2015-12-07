@@ -156,7 +156,7 @@ class Timer:
 def main():
     with Timer():
         linux.Installer()
-        GitConfigurator()
+        # GitConfigurator()
         # git.clone()
 
 if __name__ == '__main__':
