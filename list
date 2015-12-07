@@ -1,4 +1,4 @@
-# LINUX GENERIC
+LINUX GENERIC
 
 # Vi Improved - Text editor
 # www.vim.org/
@@ -39,6 +39,10 @@ texlive
 # usage: pandoc [options] [FILE...]
 pandoc
 
+# Diff viewer
+# meldmerge.org/
+meld
+
 # Version control system
 # https://git-scm.com/
 git
@@ -64,7 +68,7 @@ vlc
 # usage: nyancat
 nyancat
 
-# TOOLS
+TOOLS
 
 # Sublime Text 3
 # www.sublimetext.com/
@@ -115,7 +119,7 @@ wine
 # usage: bcompare [FILE...]
 # wget http://www.scootersoftware.com/bcompare-4.1.2.20720_amd64.deb
 # sudo gdebi bcompare-4.1.2.20720_amd64.deb
-beyond compare
+# beyond compare
 
 # Viber
 # https://www.viber.com/en
