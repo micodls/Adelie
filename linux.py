@@ -5,7 +5,8 @@ import helpers
 
 class Installer:
     def __init__(self):
-        helpers.read_file();
+        for application in self.__get_list_to_be_install():
+		self.__install(application)
         # self.__update()
         # self.__upgrade()
         # self.__clean()
@@ -46,19 +47,20 @@ class Installer:
     def __install(self, alias):
         command = self.__get_command_name(alias)
         installer = self.__get_installer_name(alias)
-
-        if command is None or installer is None:
-            helpers.log('{} not [yet] supported'.format(alias), 'warning')
-        else:
-            try:
-                helpers.log('Checking if {} is not yet installed.'.format(alias), 'debug')
-                helpers.execute('{} --help'.format(command), 'quiet')
-            except OSError as e:
-                if e.errno == os.errno.ENOENT:
-                    helpers.log('Installing {}.'.format(alias), 'info')
-                    # helpers.execute('sudo apt-get install {}'.format(installer))
-            else:
-                helpers.log('{} already installed.'.format(alias), 'info')
+	
+	print command, installer
+        #if command is None or installer is None:
+        #    helpers.log('{} not [yet] supported'.format(alias), 'warning')
+        #else:
+        #    try:
+        #        helpers.log('Checking if {} is not yet installed.'.format(alias), 'debug')
+        #        helpers.execute('{} --help'.format(command), 'quiet')
+        #    except OSError as e:
+        #        if e.errno == os.errno.ENOENT:
+        #            helpers.log('Installing {}.'.format(alias), 'info')
+        #            # helpers.execute('sudo apt-get install {}'.format(installer))
+        #    else:
+        #        helpers.log('{} already installed.'.format(alias), 'info')
 
     def __update(self):
         # helpers.execute('echo "nameserver 8.8.8.8" | sudo tee /etc/resolv.conf > /dev/null', 'pipe') # hack for update
@@ -93,6 +95,9 @@ class Installer:
         command_name = {
             'vim': 'vim',
             'curl': 'curl',
+            'gdebi': 'gdebi',
+            'dtrx': 'dtrx',
+            'xclip': 'xclip',
             'git': 'git',
             'google chrome': 'google-chrome',
             'vlc': 'vlc',
@@ -102,3 +107,12 @@ class Installer:
         }.get(alias, None)
 
         return command_name
+
+    def __get_list_to_be_install(self):
+        list = []
+        with open('list') as file:
+            for line in file:
+                if not line.lstrip().startswith('#'):
+                    list.append(line.rstrip());
+
+        return filter(None, list)

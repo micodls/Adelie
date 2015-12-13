@@ -1,4 +1,4 @@
-LINUX GENERIC
+# LINUX GENERIC
 
 # Vi Improved - Text editor
 # www.vim.org/
@@ -68,7 +68,7 @@ vlc
 # usage: nyancat
 nyancat
 
-TOOLS
+# TOOLS
 
 # Sublime Text 3
 # www.sublimetext.com/

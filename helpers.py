@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 
-import re
 import os
 import sys
 import platform
@@ -30,12 +29,6 @@ def execute(command, option=None, abort_on_error=True):
 
 def is_linux():
     return platform.system().lower() == "linux"
-
-def read_file():
-    with open('list') as f:
-        for line in f:
-            if not line.lstrip().startswith('#'):
-                print line
 
 def log(message, severity='info'):
     message = '[{}]: {}'.format(severity.upper(), message)
