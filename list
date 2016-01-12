@@ -67,6 +67,11 @@ vlc
 # usage: nyancat
 nyancat
 
+# Python package manager
+# https://pypi.python.org/pypi/pip
+# usage: pip install [PACKAGE...]
+pip
+
 # TOOLS
 
 # Sublime Text 3

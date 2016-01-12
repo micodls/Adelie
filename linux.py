@@ -2,9 +2,12 @@
 
 import os
 import helpers
+# from tqdm import tqdm
+# import requests
 
 class Installer:
     def __init__(self):
+        # self.__download_file()
         for application in self.__get_list_to_be_install():
             self.__install(application)
         # self.__update()
@@ -44,10 +47,9 @@ class Installer:
         # self.__update()
         # self.__install("spotify")
 
-    def __install(self, alias):
-        print alias
-        command = self.__get_command_name(alias)
-        installer = self.__get_installer_name(alias)
+    def __install(self, application):
+        command = self.__get_command_name(application)
+        installer = self.__get_installer_name(application)
 
         print command, installer
         #if command is None or installer is None:
@@ -78,11 +80,11 @@ class Installer:
         helpers.execute("sudo apt-get purge {}".format(command))
         self.__clean()
 
-    def __get_installer_name(self, alias):
+    def __get_installer_name(self, application):
         installer_name = {
-            "beyond compare": "bcomapre.deb",
+            "beyond compare": "packages/bcomapre.deb",
             "curl": "curl",
-            "dropbox": "dropbox.deb",
+            "dropbox": "packages/dropbox.deb",
             "dtrx": "dtrx",
             "gdebi": "gdebi",
             "git": "git",
@@ -93,23 +95,24 @@ class Installer:
             "npm": "npm",
             "nyancat": "nyancat",
             "pandoc": "pandoc",
+            "pip": "python-pip",
             "skype": "skype",
             "spotify": "spotify-client",
             "sublime": "sublime-text-installer",
             "texlive": "texlive-latex-base texlive-fonts-recommended texlive-latex-extra",
-            "viber": "viber.deb",
+            "viber": "packages/viber.deb",
             "vim": "vim",
             "vlc": "vlc browser-plugin-vlc",
             "wine": "wine",
             "xclip": "xclip"
-        }.get(alias, None)
+        }.get(application, None)
 
         if installer_name is None:
-            raise RuntimeError("{} isn't a supported installer name.".format(alias))
+            raise RuntimeError("{} isn't a supported installer name.".format(application))
 
         return installer_name
 
-    def __get_command_name(self, alias):
+    def __get_command_name(self, application):
         command_name = {
             "beyond compare": "bcompare",
             "curl": "curl",
@@ -124,6 +127,7 @@ class Installer:
             "npm": "npm",
             "nyancat": "nyancat",
             "pandoc": "pandoc",
+            "pip": "pip",
             "skype": "skype",
             "spotify": "spotify",
             "sublime": "subl",
@@ -133,10 +137,10 @@ class Installer:
             "vlc": "vlc",
             "wine": "wine",
             "xclip": "xclip"
-        }.get(alias, None)
+        }.get(application, None)
 
         if command_name is None:
-            raise RuntimeError("{} isn't a supported command name.".format(alias))
+            raise RuntimeError("{} isn't a supported command name.".format(application))
 
         return command_name
 
@@ -148,3 +152,11 @@ class Installer:
                     list.append(line.rstrip());
 
         return filter(None, list)
+
+    # def __download_file(self):
+    #     url = "http://www.scootersoftware.com/bcompare-4.1.2.20720_amd64.deb"
+    #     response = requests.get(url, stream=True)
+
+    #     with open("10MB", "wb") as handle:
+    #         for data in tqdm(response.iter_content()):
+    #             handle.write(data)
