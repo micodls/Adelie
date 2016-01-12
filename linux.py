@@ -6,7 +6,7 @@ import helpers
 class Installer:
     def __init__(self):
         for application in self.__get_list_to_be_install():
-		self.__install(application)
+            self.__install(application)
         # self.__update()
         # self.__upgrade()
         # self.__clean()
@@ -47,8 +47,8 @@ class Installer:
     def __install(self, alias):
         command = self.__get_command_name(alias)
         installer = self.__get_installer_name(alias)
-	
-	print command, installer
+
+    print command, installer
         #if command is None or installer is None:
         #    helpers.log('{} not [yet] supported'.format(alias), 'warning')
         #else:
@@ -88,6 +88,9 @@ class Installer:
             'skype': 'skype',
             'spotify': 'spotify-client'
         }.get(alias, None)
+
+        if installer_name is None:
+            raise RuntimeError("{} isn't an alias of a maintenance branch.".format(alias))
 
         return installer_name
 
