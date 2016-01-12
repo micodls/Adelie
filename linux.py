@@ -100,7 +100,8 @@ class Installer:
             "nyancat": "nyancat",
             "wine": "wine",
             "viber": "viber.deb",
-            "dropbox": "dropbox.deb"
+            "dropbox": "dropbox.deb",
+            "beyond compare": "bcomapre.deb"
         }.get(alias, None)
 
         if installer_name is None:
@@ -130,7 +131,8 @@ class Installer:
             "nyancat": "nyancat",
             "wine": "wine",
             "viber": "/opt/viber/Viber",
-            "dropbox": "dropbox"
+            "dropbox": "dropbox",
+            "beyond compare": "bcompare"
         }.get(alias, None)
 
         if command_name is None:
