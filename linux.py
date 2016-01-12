@@ -80,28 +80,28 @@ class Installer:
 
     def __get_installer_name(self, alias):
         installer_name = {
-            "vim": "vim",
+            "beyond compare": "bcomapre.deb",
             "curl": "curl",
-            "gdebi": "gdebi",
+            "dropbox": "dropbox.deb",
             "dtrx": "dtrx",
-            "xclip": "xclip",
+            "gdebi": "gdebi",
             "git": "git",
-            "texlive": "texlive-latex-base texlive-fonts-recommended texlive-latex-extra",
-            "google chrome": "google-chrome-stable",
-            "vlc": "vlc browser-plugin-vlc",
-            "sublime": "sublime-text-installer",
-            "skype": "skype",
-            "spotify": "spotify-client",
-            "pandoc": "pandoc",
-            "meld": "meld",
             "gitk": "gitk",
+            "google chrome": "google-chrome-stable",
+            "meld": "meld",
             "nodejs": "nodejs",
             "npm": "npm",
             "nyancat": "nyancat",
-            "wine": "wine",
+            "pandoc": "pandoc",
+            "skype": "skype",
+            "spotify": "spotify-client",
+            "sublime": "sublime-text-installer",
+            "texlive": "texlive-latex-base texlive-fonts-recommended texlive-latex-extra",
             "viber": "viber.deb",
-            "dropbox": "dropbox.deb",
-            "beyond compare": "bcomapre.deb"
+            "vim": "vim",
+            "vlc": "vlc browser-plugin-vlc",
+            "wine": "wine",
+            "xclip": "xclip"
         }.get(alias, None)
 
         if installer_name is None:
@@ -111,28 +111,28 @@ class Installer:
 
     def __get_command_name(self, alias):
         command_name = {
-            "vim": "vim",
+            "beyond compare": "bcompare",
             "curl": "curl",
-            "gdebi": "gdebi",
+            "dropbox": "dropbox",
             "dtrx": "dtrx",
-            "xclip": "xclip",
+            "gdebi": "gdebi",
             "git": "git",
-            "google chrome": "google-chrome",
-            "vlc": "vlc",
-            "sublime": "subl",
-            "skype": "skype",
-            "spotify": "spotify",
-            "texlive": "latex",
-            "pandoc": "pandoc",
-            "meld": "meld",
             "gitk": "gitk",
+            "google chrome": "google-chrome",
+            "meld": "meld",
             "nodejs": "nodejs",
             "npm": "npm",
             "nyancat": "nyancat",
-            "wine": "wine",
+            "pandoc": "pandoc",
+            "skype": "skype",
+            "spotify": "spotify",
+            "sublime": "subl",
+            "texlive": "latex",
             "viber": "/opt/viber/Viber",
-            "dropbox": "dropbox",
-            "beyond compare": "bcompare"
+            "vim": "vim",
+            "vlc": "vlc",
+            "wine": "wine",
+            "xclip": "xclip"
         }.get(alias, None)
 
         if command_name is None:
