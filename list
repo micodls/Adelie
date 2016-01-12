@@ -121,8 +121,8 @@ wine
 # Beyond compare
 # www.scootersoftware.com/
 # usage: bcompare [FILE...]
-# wget http://www.scootersoftware.com/bcompare-4.1.2.20720_amd64.deb
-# sudo gdebi bcompare-4.1.2.20720_amd64.deb
+# wget http://www.scootersoftware.com/bcompare-4.1.3.20814_amd64.deb"
+# sudo gdebi bcompare-4.1.3.20814_amd64.deb
 # beyond compare
 
 # Viber
