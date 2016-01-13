@@ -2,12 +2,12 @@
 
 import os
 import helpers
-# from tqdm import tqdm
-# import requests
+import requests
+from clint.textui import progress
 
 class Installer:
     def __init__(self):
-        # self.__download_file()
+        self.__download_file()
         for application in self.__get_list_to_be_install():
             self.__install(application)
         # self.__update()
@@ -153,10 +153,11 @@ class Installer:
 
         return filter(None, list)
 
-    # def __download_file(self):
-    #     url = "http://www.scootersoftware.com/bcompare-4.1.2.20720_amd64.deb"
-    #     response = requests.get(url, stream=True)
-
-    #     with open("10MB", "wb") as handle:
-    #         for data in tqdm(response.iter_content()):
-    #             handle.write(data)
+    def __download_file(self):
+        r = requests.get("http://www.scootersoftware.com/bcompare-4.1.3.20814_amd64.deb", stream=True)
+        with open("packages/bcompare-4.1.3.20814_amd64.deb", 'wb') as f:
+            total_length = int(r.headers.get('content-length'))
+            for chunk in progress.bar(r.iter_content(chunk_size=1024), expected_size=(total_length/1024) + 1):
+                if chunk:
+                    f.write(chunk)
+                    f.flush()
