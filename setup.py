@@ -4,16 +4,15 @@ import time
 import os
 import sys
 import subprocess
-import shlex
-import helpers
-import linux
+from pystaller import helpers
+from pystaller import linux
 
-class BitBucket:
-    def __init__(self):
-        try:
-            # helpers.execute('pip show bitbucket-api')
-        except ImportError as e:
-            print e
+# class BitBucket:
+#     def __init__(self):
+#         try:
+#             # helpers.execute('pip show bitbucket-api')
+#         except ImportError as e:
+#             print e
 
 # Fix this one
 class Git:

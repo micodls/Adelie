@@ -5,6 +5,8 @@ import helpers
 import requests
 from clint.textui import progress
 
+__location__ = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__)))
+
 class Installer:
     def __init__(self):
         self.__download_file()
@@ -146,7 +148,7 @@ class Installer:
 
     def __get_list_to_be_install(self):
         list = []
-        with open("list") as file:
+        with open(os.path.join(__location__, "list")) as file:
             for line in file:
                 if not line.lstrip().startswith("#"):
                     list.append(line.rstrip());
@@ -155,7 +157,8 @@ class Installer:
 
     def __download_file(self):
         r = requests.get("http://www.scootersoftware.com/bcompare-4.1.3.20814_amd64.deb", stream=True)
-        with open("packages/bcompare-4.1.3.20814_amd64.deb", 'wb') as f:
+        # print os.path.relpath("packages")
+        with open("/packages/bcompare-4.1.3.20814_amd64.deb", 'wb') as f:
             total_length = int(r.headers.get('content-length'))
             for chunk in progress.bar(r.iter_content(chunk_size=1024), expected_size=(total_length/1024) + 1):
                 if chunk:
