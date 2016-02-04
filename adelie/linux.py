@@ -1,59 +1,23 @@
 #!/usr/bin/env python
 
 import os
+import re
 import helpers
 import requests
 from clint.textui import progress
 
-__location__ = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__)))
 
 class Installer:
     def __init__(self):
-        self.__download_file()
+        self.__download_packages()
         for application in self.__get_list_to_be_install():
             self.__install(application)
-        # self.__update()
-        # self.__upgrade()
-        # self.__clean()
-
-        # generic - works
-        # self.__install("vim")
-        # self.__install("curl")
-        # self.__install("git")
-
-        # self.__install("python-pip")
-        # self.__install("python-setuptools")
-
-        # google chrome
-        # helpers.execute("wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -")
-        # helpers.execute("sudo sh -c \"echo "deb http://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google-chrome.list\"")
-        # self.__update()
-        # self.__install("google chrome")
-
-        # sublime
-        # helpers.execute("sudo add-apt-repository ppa:webupd8team/sublime-text-3")
-        # self.__update()
-        # self.__install("sublime")
-
-        # vlc
-        # self.__install("vlc")
-
-        # skype - not working
-        # helpers.execute("sudo add-apt-repository "deb http://archive.canonical.com/ $(lsb_release -sc) partner"")
-        # self.__update()
-        # self.__install("skype")
-
-        # spotify - not working (needs to be updated for 15.04)
-        # helpers.execute("sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys D2C19886")
-        # helpers.execute("sudo sh -c \"echo "deb http://repository.spotify.com stable non-free" > /etc/apt/sources.list.d/spotify.list\"")
-        # self.__update()
-        # self.__install("spotify")
 
     def __install(self, application):
         command = self.__get_command_name(application)
         installer = self.__get_installer_name(application)
 
-        print command, installer
+        # print command, installer
         #if command is None or installer is None:
         #    helpers.log("{} not [yet] supported".format(alias), "warning")
         #else:
@@ -84,9 +48,9 @@ class Installer:
 
     def __get_installer_name(self, application):
         installer_name = {
-            "beyond compare": "packages/bcomapre.deb",
+            "beyond compare": "adelie/packages/bcompare-4.1.3.20814_amd64.deb",
             "curl": "curl",
-            "dropbox": "packages/dropbox.deb",
+            "dropbox": "adelie/packages/dropbox_2015.10.28_amd64.deb",
             "dtrx": "dtrx",
             "gdebi": "gdebi",
             "git": "git",
@@ -102,7 +66,7 @@ class Installer:
             "spotify": "spotify-client",
             "sublime": "sublime-text-installer",
             "texlive": "texlive-latex-base texlive-fonts-recommended texlive-latex-extra",
-            "viber": "packages/viber.deb",
+            "viber": "adelie/packages/viber.deb",
             "vim": "vim",
             "vlc": "vlc browser-plugin-vlc",
             "wine": "wine",
@@ -148,19 +112,38 @@ class Installer:
 
     def __get_list_to_be_install(self):
         list = []
-        with open(os.path.join(__location__, "list")) as file:
+        with open("adelie/list") as file:
             for line in file:
                 if not line.lstrip().startswith("#"):
                     list.append(line.rstrip());
 
         return filter(None, list)
 
-    def __download_file(self):
-        r = requests.get("http://www.scootersoftware.com/bcompare-4.1.3.20814_amd64.deb", stream=True)
-        # print os.path.relpath("packages")
-        with open("/packages/bcompare-4.1.3.20814_amd64.deb", 'wb') as f:
-            total_length = int(r.headers.get('content-length'))
-            for chunk in progress.bar(r.iter_content(chunk_size=1024), expected_size=(total_length/1024) + 1):
+    def __get_deb_links(self):
+        list = []
+        pattern = re.compile("http.*\.deb")
+        with open("adelie/list") as file:
+            for line in file:
+                list += pattern.findall(line)
+
+        return list
+
+    def __download_packages(self):
+        for deb_link in self.__get_deb_links():
+            file_name =  deb_link.split("/")[-1]
+            file_path = "adelie/packages/" + file_name
+            if not os.path.isfile(file_path):
+                helpers.log("Downloading {}".format(file_name), "info")
+                self.__download_file(deb_link, file_path)
+                helpers.log("Finished downloading {}".format(file_name), "info")
+            else:
+                helpers.log("{} already exists in packages".format(file_name), "debug")
+
+    def __download_file(self, source, destination):
+        request = requests.get(source, stream=True)
+        with open(destination, 'wb') as file:
+            total_length = int(request.headers.get('content-length'))
+            for chunk in progress.bar(request.iter_content(chunk_size=1024), expected_size=(total_length/1024) + 1):
                 if chunk:
-                    f.write(chunk)
-                    f.flush()
+                    file.write(chunk)
+                    file.flush()
