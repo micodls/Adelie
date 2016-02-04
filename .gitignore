@@ -43,8 +43,8 @@ Temporary Items
 .apdisk
 
 # Sublime
-.sublime-project
-.sublime-workspace
+*.sublime-project
+*.sublime-workspace
 
 # Compiled Python Object
-.pyc
+*.pyc
