@@ -48,3 +48,6 @@ Temporary Items
 
 # Compiled Python Object
 *.pyc
+
+# Debian Packages
+*.deb

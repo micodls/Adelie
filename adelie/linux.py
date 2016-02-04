@@ -6,7 +6,6 @@ import helpers
 import requests
 from clint.textui import progress
 
-
 class Installer:
     def __init__(self):
         self.__download_packages()
