@@ -4,8 +4,8 @@ import time
 import os
 import sys
 import subprocess
-from pystaller import helpers
-from pystaller import linux
+from adelie import helpers
+from adelie import linux
 
 # class BitBucket:
 #     def __init__(self):
