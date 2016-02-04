@@ -1,0 +1,10 @@
+sudo apt-get install pidgin
+sudo pip install BeautifulSoup4
+sudo apt-get install libcurl4-openssl-dev
+sudo apt-get install python-dev
+sudo pip install pycurl
+
+http://wrling31.emea.nsn-net.net:8080/lkuchars/decisco
+
+Common problems:
+Socket in use: sudo kill `sudo lsof -t -i:5222`
