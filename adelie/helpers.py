@@ -36,3 +36,7 @@ def log(message, severity='info'):
     print '=' * message_length
     print message
     print '=' * message_length
+
+def cmd_exists(cmd):
+    return subprocess.call("type " + cmd, shell=True,
+        stdout=subprocess.PIPE, stderr=subprocess.PIPE) == 0

@@ -4,6 +4,7 @@ import os
 import re
 import helpers
 import requests
+import distutils.spawn
 from clint.textui import progress
 
 class Installer:
@@ -16,19 +17,16 @@ class Installer:
         command = self.__get_command_name(application)
         installer = self.__get_installer_name(application)
 
-        # print command, installer
-        #if command is None or installer is None:
-        #    helpers.log("{} not [yet] supported".format(alias), "warning")
-        #else:
-        #    try:
-        #        helpers.log("Checking if {} is not yet installed.".format(alias), "debug")
-        #        helpers.execute("{} --help".format(command), "quiet")
-        #    except OSError as e:
-        #        if e.errno == os.errno.ENOENT:
-        #            helpers.log("Installing {}.".format(alias), "info")
-        #            # helpers.execute("sudo apt-get install {}".format(installer))
-        #    else:
-        #        helpers.log("{} already installed.".format(alias), "info")
+        try:
+            helpers.log("Checking if {} is not yet installed.".format(application), "debug")
+            # helpers.execute("{} --help".format(application), "quiet")
+            print distutils.spawn.find_executable(command)
+        except OSError as e:
+            if e.errno == os.errno.ENOENT:
+                helpers.log("Installing {}.".format(application), "info")
+                # helpers.execute("sudo apt-get install {}".format(installer))
+        else:
+            helpers.log("{} already installed.".format(application), "info")
 
     def __update(self):
         # helpers.execute("echo "nameserver 8.8.8.8" | sudo tee /etc/resolv.conf > /dev/null", "pipe") # hack for update
