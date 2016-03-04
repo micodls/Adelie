@@ -25,3 +25,6 @@ sudo apt-get purge linux-image-x.xxx.xx # all lower version than what you are us
 # npm warn unmet dependency when you npm install
 rm -rf node_modules/
 npm cache clean
+
+# W: Failed to fetch http://dl.google.com/linux/chrome/deb/dists/stable/Release  Unable to find expected entry 'main/binary-i386/Packages' in Release file (Wrong sources.list entry or malformed file)
+sudo sed -i -e 's/deb http/deb [arch=amd64] http/' "/etc/apt/sources.list.d/google-chrome.list"
